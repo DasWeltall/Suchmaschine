@@ -1,1 +1,112 @@
 
+
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kooogle</title>
+  <link rel="icon" href="find-2.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      background-color: rgb(74, 74, 119);
+    } 
+    
+    h1 {
+      font-size: 100px;
+      font-weight: bold;
+      color: #0073b7;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    h1::after {
+      content: " ";
+      font-size: 150px;
+      font-weight: normal;
+      color: #ff9800;
+      margin-left: 10px;
+    }
+
+    p {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
+   
+    input {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: orange;
+  border: 2px solid #B404AE;
+  border-radius: 10px;
+  padding: 15px 50px;
+}
+
+
+    button {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #B404AE;
+  border-radius: 23px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #ff9800;
+}
+  </style>
+
+
+</head>
+<body>
+  <div class="main">
+         <h1 style="color: orange;">Anmelden</h1>
+         <h2 style="color: white;">Wir speichern keine Anmeldungen</h2>
+        <form action="">
+            <label for="first">
+                  Username:
+              </label>
+            <input type="text"
+                   id="first"
+                   name="first"
+                   placeholder="Enter your Username" required>
+ 
+            <label for="password">
+                  Password:
+              </label>
+            <input type="password"
+                   id="password"
+                   name="password"
+                   placeholder="Enter your Password" required>
+
+           <label for="password">
+                  Confirm Password:
+              </label>
+            <input type="password"
+                   id="password"
+                   name="password"
+                   placeholder="Confirm your Password" required>
+ 
+            <div class="wrap">
+                <button type="submit"
+                        onclick="solve()">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+ 
+  
+</body>
+</html>
