@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kooogle</title>
+  <link rel="icon" href="find-2.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      background-color: rgb(74, 74, 119);
+    } 
+    
+    h1 {
+      font-size: 100px;
+      font-weight: bold;
+      color: #0073b7;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    h1::after {
+      content: " ";
+      font-size: 150px;
+      font-weight: normal;
+      color: #ff9800;
+      margin-left: 10px;
+    }
+
+
+  #iconButton {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #iconButton:hover {
+      background-color: #0056b3;
+    }
+
+	  #iconButto {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: orange;
+  border: 2px solid #B404AE;
+  border-radius: 10px;
+  padding: 15px 50px;
+}
+
+
+    button {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #B404AE;
+  border-radius: 23px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #ff9800;
+}
+  </style>
+
+
+</head>
+<body>
+   <button id="iconButton"><img src="mehr.png" alt="Icon"></button>
+  <h1 size="200" style="color: orange;">Kooogle</h1>
+			<h5 style="color: orange;">Ihre Suchmaschine für kurze Suchen</h5>
+	                <form id="searchForm">
+                               <input type="text" id="searchQuery" placeholder="Suchen...">
+                               <button type="button" onclick="search()"><img src="find-2.png" alt="suche"></button>
+                        </form>
+                        <ul id="results"></ul>
+			<footer>
+			<h4 style="color: white;">Trends bei Suchanfragen:</h4>
+			<h6 style="color: white;">| TV |</h6>
+			<h6 style="color: white;">| Kooogle |</h6>
+			<h6 style="color: white;">| Nachrichten |</h6>
+			<h6 style="color: white;">| Musik |</h6>
+			<a href="koogle.html">Über Kooogle</a>
+			<a href="einstellungen.html">Einstellungen</a>
+			<a href="datenschutz.html">Datenschutz</a>
+			<a href="#" onclick="changeColor()">Design wechsel</a>
+			<a href="game.html">Kooogle-Game</a>
+			</footer>
+</body>
+
+<script>
+    // Vorprogrammierte Links mit Titel, Beschreibung und URL
+    var predefinedLinks = [
+        { title: "Smartghost", description: "Smartghost Münster", url: "https://www.smartghost-muenster.de" },
+        { title: "WhatsApp", description: "WhatsApp Web", url: "https://web.whatsapp.com/" },
+        { title: "Raspberry Pi", description: "Raspberry Pi Foundation", url: "https://www.raspberrypi.com/" },
+        { title: "Google", description: "Die bekannteste Suchmaschine", url: "https://www.google.com" },
+        { title: "Apple", description: "Apple Inc.", url: "https://www.apple.com" },
+        { title: "NABU", description: "Naturschutzbund Deutschland", url: "https://www.nabu.de/" },
+        { title: "Tagesschau", description: "Aktuelle Nachrichten", url: "https://www.tagesschau.de" },
+        { title: "Samsung", description: "Samsung Electronics", url: "https://www.samsung.com/" },
+        { title: "YouTube", description: "Video-Plattform", url: "https://www.youtube.com/" },
+        { title: "SoundCloud", description: "Audio-Plattform", url: "https://soundcloud.com/" },
+        { title: "Spotify", description: "Musik-Streaming-Dienst", url: "https://open.spotify.com/" },
+        { title: "TV Today", description: "Fernsehprogramm", url: "https://www.tvtoday.de/" },
+        { title: "Google Maps", description: "Karten und Routenplanung", url: "https://www.google.com/maps/" },
+        { title: "Amazon", description: "Online-Versandhändler", url: "https://www.amazon.com/" },
+        { title: "GitHub", description: "Plattform für Entwickler", url: "https://github.com/" },
+        { title: "Wikipedia", description: "Online-Enzyklopädie", url: "https://www.wikipedia.org" }
+    ];
+
+    function search() {
+        var query = document.getElementById('searchQuery').value.toLowerCase();
+        var resultsContainer = document.getElementById('results');
+        resultsContainer.innerHTML = ''; // Lösche vorherige Suchergebnisse
+        var matches = [];
+
+        // Durchsuche die vorprogrammierten Links nach Übereinstimmungen mit der Suchanfrage
+        predefinedLinks.forEach(function(link) {
+            if (link.title.toLowerCase().includes(query) || link.description.toLowerCase().includes(query)) {
+                matches.push(link);
+            }
+        });
+
+        // Zeige die gefundenen Suchergebnisse an
+        matches.forEach(function(match) {
+            var resultElement = document.createElement('div');
+            resultElement.innerHTML = '<a href="' + match.url + '">' + match.title + '</a><p>' + match.description + '</p>';
+            resultsContainer.appendChild(resultElement);
+        });
+
+        // Wenn keine Übereinstimmungen gefunden wurden, zeige eine entsprechende Nachricht an
+        if (matches.length === 0) {
+            resultsContainer.textContent = "Keine Ergebnisse gefunden.";
+        }
+    }
+
+
+     // Event-Listener hinzufügen, um auf Klicks auf den Button zu reagieren
+    document.getElementById("iconButton").addEventListener("click", function() {
+      window.location.href = "mehr.html";
+    });
+
+     
+</script>
+
+
+   
+</html>
