@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kooogle</title>
+  <link rel="icon" href="find-2.png">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #f7f7f7;
+    }
+
+    canvas {
+      display: block;
+      margin: auto;
+    }
+
+    #retryButton {
+      display: none;
+      background-color: orange;
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      font-size: 50px;
+      border-radius: 10px;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <h5 id="drawBird" style="color: orange;">Kooogle-Game</h5>
+  <canvas id="gameCanvas" width="400" height="600"></canvas>
+  <button id="retryButton">Try Again</button>
+
+  <script>
+    var canvas = document.getElementById("gameCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var bird = {
+      x: 50,
+      y: canvas.height / 2,
+      radius: 20,
+      color: "#FF5733",
+      velocityY: 0,
+      gravity: 0.5
+    };
+
+    var obstacles = [];
+    var gap = 150;
+    var obstacleWidth = 50;
+    var obstacleSpeed = 2;
+    var score = 0;
+    var gameover = false;
+
+    function drawBird() {
+      ctx.beginPath();
+      ctx.arc(bird.x, bird.y, bird.radius, 0, Math.PI * 2);
+      ctx.fillStyle = bird.color;
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function drawObstacles() {
+      obstacles.forEach(function(obstacle) {
+        ctx.fillStyle = obstacle.color;
+        ctx.fillRect(obstacle.x, 0, obstacleWidth, obstacle.height);
+        ctx.fillRect(obstacle.x, obstacle.height + gap, obstacleWidth, canvas.height - obstacle.height - gap);
+      });
+    }
+
+    function update() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      bird.velocityY += bird.gravity;
+      bird.y += bird.velocityY;
+
+      drawBird();
+
+      if (bird.y - bird.radius <= 0 || bird.y + bird.radius >= canvas.height) {
+        gameOver();
+      }
+
+      obstacles.forEach(function(obstacle) {
+        obstacle.x -= obstacleSpeed;
+
+        if (obstacle.x + obstacleWidth < 0) {
+          score++;
+          obstacles.shift();
+        }
+
+        if (bird.x + bird.radius > obstacle.x && bird.x - bird.radius < obstacle.x + obstacleWidth) {
+          if (bird.y - bird.radius < obstacle.height || bird.y + bird.radius > obstacle.height + gap) {
+            gameOver();
+          }
+        }
+      });
+
+      drawObstacles();
+
+      if (!gameover) {
+        requestAnimationFrame(update);
+      }
+    }
+
+    function spawnObstacle() {
+      var height = Math.floor(Math.random() * (canvas.height - gap));
+      obstacles.push({ x: canvas.width, height: height, color: "#4CAF50" });
+    }
+
+    function gameOver() {
+      gameover = true;
+      document.getElementById("retryButton").style.display = "block";
+      alert("Game Over! Dein Score: " + score);
+    }
+
+    function reset() {
+      bird.y = canvas.height / 2;
+      bird.velocityY = 0;
+      obstacles = [];
+      score = 0;
+      gameover = false;
+      document.getElementById("retryButton").style.display = "none";
+      spawnObstacle();
+      update();
+    }
+
+    document.getElementById("retryButton").addEventListener("click", function() {
+      reset();
+    });
+
+    document.addEventListener("keydown", function(event) {
+      if (event.code === "Space") {
+        bird.velocityY = -7;
+      }
+    });
+
+    spawnObstacle();
+    update();
+    setInterval(spawnObstacle, 5000);
+  </script>
+</body>
+</html>
