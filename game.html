@@ -59,6 +59,13 @@
     var score = 0;
     var gameover = false;
 
+
+    function drawHighscore() {
+      ctx.font = "20px Arial";
+      ctx.fillStyle = "#333";
+      ctx.fillText("Highscore: " + highscore, 10, 30);
+    }
+
     function drawBird() {
       ctx.beginPath();
       ctx.arc(bird.x, bird.y, bird.radius, 0, Math.PI * 2);
