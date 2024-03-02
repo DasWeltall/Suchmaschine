@@ -188,6 +188,7 @@ button:hover {
         var resultsContainer = document.getElementById('results');
         resultsContainer.innerHTML = ''; // Lösche vorherige Suchergebnisse
         var matches = [];
+	speichereSuchhistorie();
 
         // Durchsuche die vorprogrammierten Links nach Übereinstimmungen mit der Suchanfrage
         predefinedLinks.forEach(function(link) {
@@ -271,11 +272,7 @@ function getCookie(name) {
   return "";
 }
 
-// Funktion, die beim Klicken auf den Such-Button ausgelöst wird
-function search() {
-  speichereSuchhistorie();
-  // Hier kannst du den weiteren Suchvorgang implementieren, z.B. das Auslösen der Suchanfrage
-}
+
 </script>
 
    
