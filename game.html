@@ -124,7 +124,7 @@
     function gameOver() {
       gameover = true;
       document.getElementById("retryButton").style.display = "block";
-      alert("Game Over! Dein Score: " + score + ". Dein persönlicher Highscore: " + highscore);
+      alert("Game Over! Dein Score: " + score + ". Dein Highscore: " + highscore);
     }
 
     function reset() {
@@ -168,8 +168,7 @@ if (score > highscore) {
     localStorage.setItem("highscore", highscore); // Speichern des neuen Highscores im lokalen Speicher
 }
 
-// Aktualisieren des Highscore-Elements
-document.getElementById("highscoreValue").textContent = highscore;
+
   </script>
 </body>
 </html>
