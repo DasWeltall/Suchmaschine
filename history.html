@@ -42,51 +42,39 @@
   </style>
 </head>
 <body>
-  <h1 size="200" style="color: orange">Suchhistorie</h1>
+  
+<h1 size="200" style="color: orange">Suchhistorie</h1>
   <p>History List:</p>
-  <ul id="historyList"></ul>
+<ul id="searchHistoryList">
+  <!-- Hier wird die Suchhistorie dynamisch eingefügt -->
+</ul>
 
-  <script>
-    // Funktion zum Abrufen der gespeicherten Suchhistorie aus den Cookies
-    function getSearchHistory() {
-      var history = JSON.parse(getCookie("suchhistorie"));
-      return history || [];
+<script>
+  // Funktion zum Abrufen der aktuellen Suchhistorie aus den Cookies
+  function getSearchHistory() {
+    // Den Wert des Cookies "suchhistorie" abrufen
+    var cookieValue = "; " + document.cookie;
+    var parts = cookieValue.split("; suchhistorie=");
+    
+    // Überprüfen, ob das Cookie vorhanden ist
+    if (parts.length == 2) {
+      return JSON.parse(parts.pop().split(";").shift());
+    } else {
+      // Falls das Cookie nicht vorhanden ist, eine leere Liste zurückgeben
+      return [];
     }
+  }
 
-    // Funktion zum Anzeigen der Suchhistorie auf der Seite
-    function displaySearchHistory() {
-      var historyList = document.getElementById("historyList");
-      var history = getSearchHistory();
+  // Suchhistorie aus den Cookies abrufen
+  var searchHistory = getSearchHistory();
 
-      // Durchlaufe die Suchhistorie und erstelle Listenelemente für jede Suche
-      history.forEach(function(item) {
-        var listItem = document.createElement("li");
-        var link = document.createElement("a");
-        link.href = "index.html"; // Hier könntest du den Link zum erneuten Durchführen der Suche setzen
-        link.textContent = item;
-        listItem.appendChild(link);
-        historyList.appendChild(listItem);
-      });
-    }
-
-    // Funktionsaufruf zum Anzeigen der Suchhistorie beim Laden der Seite
-    displaySearchHistory();
-
-    // Funktion zum Abrufen von Cookies
-    function getCookie(name) {
-      var nameEQ = name + "=";
-      var ca = document.cookie.split(';');
-      for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) === ' ') {
-          c = c.substring(1, c.length);
-        }
-        if (c.indexOf(nameEQ) === 0) {
-          return c.substring(nameEQ.length, c.length);
-        }
-      }
-      return null;
-    }
-  </script>
+  // Die umgekehrte Reihenfolge der Suchhistorie durchlaufen und in die HTML-Liste einfügen
+  var searchHistoryList = document.getElementById("searchHistoryList");
+  for (var i = searchHistory.length - 1; i >= 0; i--) {
+    var listItem = document.createElement("li");
+    listItem.textContent = searchHistory[i];
+    searchHistoryList.appendChild(listItem);
+  }
+</script>
 </body>
 </html>
