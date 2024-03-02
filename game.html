@@ -135,7 +135,14 @@
       reset();
     });
 
-    document.addEventListener("mousedown", function(event) {
+
+
+    function jump() {
+      bird.velocityY = -7;
+    }
+    
+    canvas.addEventListener("mousedown", jump);
+    document.addEventListener("keydown", function(event) {
       if (event.code === "Space") {
         bird.velocityY = -7;
       }
