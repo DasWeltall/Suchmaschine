@@ -188,7 +188,7 @@ button:hover {
         var resultsContainer = document.getElementById('results');
         resultsContainer.innerHTML = ''; // Lösche vorherige Suchergebnisse
         var matches = [];
-	speichereSuchhistorie();
+	addToSearchHistory();
 
         // Durchsuche die vorprogrammierten Links nach Übereinstimmungen mit der Suchanfrage
         predefinedLinks.forEach(function(link) {
@@ -232,47 +232,45 @@ button:hover {
 
 
 
-    // Funktion zum Speichern der Suchhistorie in den Cookies
-function speichereSuchhistorie() {
-  // Den Suchbegriff aus dem Eingabefeld abrufen
+    
+  
+ 
+
+
+
+
+	
+// Funktion zum Hinzufügen einer Suchanfrage zur Suchhistorie
+function addToSearchHistory(suchbegriff) {
+  // Die aktuelle Suchhistorie aus den Cookies abrufen
   var suchbegriff = document.getElementById("searchQuery").value;
-  
-  // Die aktuelle Zeit für das Ablaufdatum des Cookies festlegen (z.B. 30 Tage)
-  var ablaufdatum = new Date();
-  ablaufdatum.setTime(ablaufdatum.getTime() + (30 * 24 * 60 * 60 * 1000));
-  var ablaufdatumString = "expires=" + ablaufdatum.toUTCString();
-  
-  // Die vorhandene Suchhistorie aus den Cookies abrufen
-  var cookieWert = getCookie("suchhistorie");
+  var suchhistorie = getSearchHistory();
   
   // Die neue Suchanfrage zur Suchhistorie hinzufügen
-  if (cookieWert !== "") {
-    cookieWert += ";" + suchbegriff;
-  } else {
-    cookieWert = suchbegriff;
-  }
+  suchhistorie.push(suchbegriff);
   
   // Die aktualisierte Suchhistorie in den Cookies speichern
-  document.cookie = "suchhistorie=" + cookieWert + "; " + ablaufdatumString + "; path=/";
+  document.cookie = "suchhistorie=" + JSON.stringify(suchhistorie) + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
 }
 
-// Hilfsfunktion zum Abrufen eines Cookies anhand seines Namens
-function getCookie(name) {
-  var nameEquals = name + "=";
-  var cookies = document.cookie.split(';');
-  for(var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i];
-    while (cookie.charAt(0) == ' ') {
-      cookie = cookie.substring(1);
-    }
-    if (cookie.indexOf(nameEquals) == 0) {
-      return cookie.substring(nameEquals.length, cookie.length);
-    }
+// Funktion zum Abrufen der aktuellen Suchhistorie aus den Cookies
+function getSearchHistory() {
+  // Den Wert des Cookies "suchhistorie" abrufen
+  var cookieValue = "; " + document.cookie;
+  var parts = cookieValue.split("; suchhistorie=");
+  
+  // Überprüfen, ob das Cookie vorhanden ist
+  if (parts.length == 2) {
+    return JSON.parse(parts.pop().split(";").shift());
+  } else {
+    // Falls das Cookie nicht vorhanden ist, eine leere Liste zurückgeben
+    return [];
   }
-  return "";
 }
 
-
+// Beispielaufruf der Funktion mit einem Suchbegriff
+var suchbegriff = "JavaScript";
+addToSearchHistory(suchbegriff);
 </script>
 
    
