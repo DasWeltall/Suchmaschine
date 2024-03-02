@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suchhistorie - Kooogle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      background-color: rgb(74, 74, 119);
+      color: white;
+    }
 
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #0073b7;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #ff9800;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Suchhistorie</h1>
+  <ul id="historyList"></ul>
+
+  <script>
+    // Funktion zum Abrufen der gespeicherten Suchhistorie aus den Cookies
+    function getSearchHistory() {
+      var history = JSON.parse(getCookie("searchHistory"));
+      return history || [];
+    }
+
+    // Funktion zum Anzeigen der Suchhistorie auf der Seite
+    function displaySearchHistory() {
+      var historyList = document.getElementById("historyList");
+      var history = getSearchHistory();
+
+      // Durchlaufe die Suchhistorie und erstelle Listenelemente für jede Suche
+      history.forEach(function(item) {
+        var listItem = document.createElement("li");
+        var link = document.createElement("a");
+        link.href = "#"; // Hier könntest du den Link zum erneuten Durchführen der Suche setzen
+        link.textContent = item;
+        listItem.appendChild(link);
+        historyList.appendChild(listItem);
+      });
+    }
+
+    // Funktionsaufruf zum Anzeigen der Suchhistorie beim Laden der Seite
+    displaySearchHistory();
+
+    // Funktion zum Abrufen von Cookies
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') {
+          c = c.substring(1, c.length);
+        }
+        if (c.indexOf(nameEQ) === 0) {
+          return c.substring(nameEQ.length, c.length);
+        }
+      }
+      return null;
+    }
+  </script>
+</body>
+</html>
