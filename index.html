@@ -281,9 +281,11 @@ button:hover {
     });
 
      
-   var color123 = "orange";
+   var color123 = ["orange", "purple", "blue", "green"];
+   var currentIndex = 0;
    function changeColor() {
-        document.body.style.backgroundColor= color123;
+        document.body.style.backgroundColor= color123[currentIndex];
+	currentIndex = (currentIndex +1) % color123.length;
     }
   
 </script>
