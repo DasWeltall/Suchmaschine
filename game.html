@@ -151,6 +151,18 @@
     spawnObstacle();
     update();
     setInterval(spawnObstacle, 5000);
+
+
+    var highscore = localStorage.getItem("highscore") || 0; // Laden des Highscores aus dem lokalen Speicher
+
+// Wenn der aktuelle Score höher als der Highscore ist, aktualisiere den Highscore
+if (score > highscore) {
+    highscore = score;
+    localStorage.setItem("highscore", highscore); // Speichern des neuen Highscores im lokalen Speicher
+}
+
+// Aktualisieren des Highscore-Elements
+document.getElementById("highscoreValue").textContent = highscore;
   </script>
 </body>
 </html>
