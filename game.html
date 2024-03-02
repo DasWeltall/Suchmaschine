@@ -160,14 +160,38 @@
     setInterval(spawnObstacle, 5000);
 
 
-    var highscore = localStorage.getItem("highscore") || 0; // Laden des Highscores aus dem lokalen Speicher
-
-// Wenn der aktuelle Score höher als der Highscore ist, aktualisiere den Highscore
-if (score > highscore) {
-    highscore = score;
-    localStorage.setItem("highscore", highscore); // Speichern des neuen Highscores im lokalen Speicher
+    // Funktion zum Speichern eines Cookies
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
+// Funktion zum Lesen eines Cookies
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1, c.length);
+        }
+        if (c.indexOf(nameEQ) == 0) {
+            return c.substring(nameEQ.length, c.length);
+        }
+    }
+    return null;
+}
+
+// Speichern des Highscores in einem Cookie
+setCookie("highscore", highscore, 365); // Der Highscore wird für 365 Tage gespeichert
+
+// Lesen des Highscores aus dem Cookie
+var highscore = getCookie("highscore");
 
   </script>
 </body>
