@@ -103,6 +103,7 @@ button:hover {
 	                <form id="searchForm">
                                <input type="text" id="searchQuery" placeholder="Suchen...">
                                <button id="set" type="button" onclick="search()"><img src="find-2.png" alt="suche"></button>
+			       <div class="suggestions" id="suggestions"></div>
                         </form>
                         <ul id="results"></ul>
 			<footer>
@@ -111,7 +112,7 @@ button:hover {
 			<h6 style="color: white;">| MiniSearch |</h6>
 			<h6 style="color: white;">| Nachrichten |</h6>
 			<h6 style="color: white;">| Musik |</h6>
-			<a position: fixed; href="kooogle.html">Über Kooogle</a>
+			<a position: fixed; href="kooogle.html">Über MiniSearch</a>
 			<a position: fixed; href="history.html">History</a>
 			<a position: fixed; href="datenschutz.html">Datenschutz</a>
 			<a position: fixed; href="#" onclick="changeColor()">Design wechsel</a>
@@ -275,7 +276,6 @@ addToSearchHistory(suchbegriff);
 
 // JavaScript für die Suchvorschläge und Suchfunktion
 const searchInput = document.getElementById('searchQuery');
-const searchButton = document.getElementById('set');
 const suggestions = document.getElementById('suggestions');
 
 // Dummy-Daten für Suchvorschläge (kannst du mit echten Daten ersetzen)
