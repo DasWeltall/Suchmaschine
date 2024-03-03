@@ -272,7 +272,56 @@ function getSearchHistory() {
 // Beispielaufruf der Funktion mit einem Suchbegriff
 var suchbegriff = "JavaScript";
 addToSearchHistory(suchbegriff);
+
+// JavaScript für die Suchvorschläge und Suchfunktion
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const suggestions = document.getElementById('suggestions');
+
+// Dummy-Daten für Suchvorschläge (kannst du mit echten Daten ersetzen)
+const searchSuggestions = ['Github', 'Gooogle', 'MiniSearch', 'YouTube', 'Wikipedia', 'Musik', 'Tagesschau'];
+
+// Funktion zum Anzeigen der Suchvorschläge
+function showSuggestions() {
+  const query = searchInput.value.toLowerCase();
+  // Leere das Vorschlagfeld
+  suggestions.innerHTML = '';
+
+  // Durchlaufe die Suchvorschläge und füge sie zum Vorschlagfeld hinzu
+  searchSuggestions.forEach(suggestion => {
+    if (suggestion.toLowerCase().startsWith(query)) {
+      const div = document.createElement('div');
+      div.classList.add('suggestion');
+      div.textContent = suggestion;
+      div.addEventListener('click', () => {
+        searchInput.value = suggestion; // Füge den Suchvorschlag in das Eingabefeld ein
+        hideSuggestions(); // Blende die Suchvorschläge aus
+      });
+      suggestions.appendChild(div);
+    }
+  });
+
+  // Zeige das Vorschlagfeld an
+  suggestions.style.display = 'block';
+  suggestions.classList.add('fadeIn');
+}
+
+// Funktion zum Ausblenden der Suchvorschläge
+function hideSuggestions() {
+  suggestions.style.display = 'none';
+}
+
+
+
+// Event-Listener für das Fokussieren des Eingabefelds
+searchInput.addEventListener('focus', showSuggestions);
+
+// Event-Listener für das Verlassen des Eingabefelds
+searchInput.addEventListener('blur', hideSuggestions);
+
+
 </script>
+
 
    
 </html>
