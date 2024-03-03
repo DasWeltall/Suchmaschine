@@ -54,7 +54,6 @@
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
-  width: calc(100% - 40px); /* Abzug des Platzes für den Such-Button */
   background-color: #fff;
   border: 2px solid #007bff;
   border-radius: 5px;
@@ -304,8 +303,6 @@ const searchSuggestions = ['Github', 'Gooogle', 'MiniSearch', 'YouTube', 'Wikipe
 // Funktion zum Anzeigen der Suchvorschläge
 function showSuggestions() {
   const query = searchInput.value.toLowerCase();
-  // Leere das Vorschlagfeld
-  suggestions.innerHTML = '';
 
   // Durchlaufe die Suchvorschläge und füge sie zum Vorschlagfeld hinzu
   searchSuggestions.forEach(suggestion => {
