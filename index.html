@@ -20,7 +20,19 @@
       color: #0073b7;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
-    
+
+
+
+	.container {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+/* Styles für die Suchleiste */
+.search-container {
+  position: relative;
+}    
+	
     h1::after {
       content: " ";
       font-size: 150px;
@@ -102,7 +114,11 @@ button:hover {
 	                <form id="searchForm">
                                <input type="text" id="searchQuery" placeholder="Suchen...">
                                <button id="set" type="button" onclick="search()"><img src="find-2.png" alt="suche"></button>
-			       <div class="suggestions" id="suggestions"></div>
+				<div class="container">
+                                  <div class="search-container">
+			            <div class="suggestions" id="suggestions"></div>
+				  </div>
+				</div>
                         </form>
                         <ul id="results"></ul>
 			<footer>
