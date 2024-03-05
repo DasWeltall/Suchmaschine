@@ -202,6 +202,13 @@ button:hover {
         var matches = [];
 	addToSearchHistory();
 
+	
+        if (/^https?:\/\//.test(query)) {
+          // Den Link in einem neuen Tab öffnen
+	  window.open(query, "_blank");
+    	  return;
+ 	}
+
         // Durchsuche die vorprogrammierten Links nach Übereinstimmungen mit der Suchanfrage
         predefinedLinks.forEach(function(link) {
             if (link.title.toLowerCase().includes(query) || link.description.toLowerCase().includes(query)) {
