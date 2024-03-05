@@ -209,6 +209,10 @@ button:hover {
             }
         });
 
+
+	    if (/^https?:\/\//.test(searchQuery)) {
+		window.open(input, "_blank");
+	    }
         // Zeige die gefundenen Suchergebnisse an
         matches.forEach(function(match) {
             var resultElement = document.createElement('div');
