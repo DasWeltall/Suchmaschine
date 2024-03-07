@@ -114,15 +114,19 @@ button:hover {
   }
 
   .dropbtn {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      color: #ffffff;
-      background-color: #B404AE;
-      border-radius: 23px;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #fff;
       border: none;
-      padding: 10px 20px;
-      right: 0px;
-      cursor: pointer
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
 
   .dropbtn i {
@@ -326,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
      // Event-Listener hinzufügen, um auf Klicks auf den Button zu reagieren
     document.getElementById("iconButton").addEventListener("click", function() {
-      window.location.href = "mehr.html";
+      window.location.href = "game.html";
     });
 
 
