@@ -16,24 +16,9 @@
         { title: "Google Maps", description: "Karten und Routenplanung", url: "https://www.google.com/maps/" },
         { title: "Amazon", description: "Online-Versandhändler", url: "https://www.amazon.com/" },
         { title: "GitHub", description: "Plattform für Entwickler", url: "https://github.com/" },
-	      { title: "OrangeSearch", description: "Kleine Suchmaschine", url: "https://dasweltall.github.io/Suchmaschine" },
-        { title: "Wikipedia", description: "Online-Enzyklopädie", url: "https://www.wikipedia.org" },
-    	  { title: "Microsoft", description: "Microsoft Corporation", url: "https://www.microsoft.com/" },
-   	    { title: "Netflix", description: "Streaming-Dienst für Filme und Serien", url: "https://www.netflix.com/" },
-    	  { title: "Twitter", description: "Soziales Netzwerk", url: "https://twitter.com/" },
-  	    { title: "Instagram", description: "Soziales Netzwerk für Fotos und Videos", url: "https://www.instagram.com/" },
-    	  { title: "LinkedIn", description: "Berufliches Netzwerk", url: "https://www.linkedin.com/" },
-    	  { title: "Reddit", description: "Online-Diskussionsplattform", url: "https://www.reddit.com/" },
-      	{ title: "Pinterest", description: "Plattform für Bilder und Ideen", url: "https://www.pinterest.com/" },
-      	{ title: "Ebay", description: "Online-Marktplatz", url: "https://www.ebay.com/" },
-      	{ title: "CNN", description: "Nachrichtensender", url: "https://www.cnn.com/" },
-    	  { title: "BBC", description: "British Broadcasting Corporation", url: "https://www.bbc.com/" },
-    	  { title: "The Guardian", description: "Britische Tageszeitung", url: "https://www.theguardian.com/international" },
-      	{ title: "TED", description: "Konferenzen zu Technologie, Unterhaltung und Design", url: "https://www.ted.com/" },
-      	{ title: "IMDb", description: "Internet Movie Database", url: "https://www.imdb.com/" },
-      	{ title: "Stack Overflow", description: "Frage-Antwort-Website für Programmierer", url: "https://stackoverflow.com/" },
-      	{ title: "Adobe", description: "Kreativsoftware", url: "https://www.adobe.com/" },
-      	{ title: "CNN", description: "Nachrichtensender", url: "https://www.cnn.com/" }
+	{ title: "OrangeSearch", description: "Kleine Suchmaschine", url: "https://dasweltall.github.io/Suchmaschine/" },
+
+
 ];
 
 
@@ -77,10 +62,7 @@
     }
 
 
-     // Event-Listener hinzufügen, um auf Klicks auf den Button zu reagieren
-    document.getElementById("iconButton").addEventListener("click", function() {
-      window.location.href = "game.html";
-    });
+   
 
 
 	
@@ -130,15 +112,9 @@ function getSearchHistory() {
   }
 }
 
-// Beispielaufruf der Funktion mit einem Suchbegriff
-var suchbegriff = "JavaScript";
-addToSearchHistory(suchbegriff);
 
 
 
 
-// Event-Listener hinzufügen, um auf Klicks auf den Button zu reagieren
-    document.getElementById("game").addEventListener("click", function() {
-      window.location.href = "game.html";
-    });
+
 
