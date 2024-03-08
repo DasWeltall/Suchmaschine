@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webterminal mit Hackerfunktion</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #000;
+            color: #fff;
+            font-family: monospace;
+        }
+        #terminal {
+            width: 100vw;
+            height: 100vh;
+            padding: 20px;
+        }
+        #eingabe {
+            width: 100%;
+            height: 30px;
+            border: none;
+            background-color: #000;
+            color: #fff;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal">
+        <p>Willkommen im Webterminal!</p>
+        <p>Geben Sie hier Ihre Befehle ein:</p>
+        <input id="eingabe" type="text">
+    </div>
+    <script>
+        const eingabe = document.getElementById("eingabe");
+
+        eingabe.addEventListener("keydown", (e) => {
+            if (e.keyCode === 13) {
+                // Befehl aus der Eingabe lesen
+                const befehl = eingabe.value;
+                eingabe.value = "";
+
+                // Den Befehl ausführen
+                if (befehl === "hilfe") {
+                    // Zeige eine Liste der verfügbaren Befehle an
+                    console.log("Verfügbare Befehle:");
+                    console.log(" - hilfe: Zeigt diese Hilfe an");
+                    console.log(" - hack: Implementiert die Hackerfunktion");
+                } else if (befehl === "hack") {
+                    // Implementieren Sie die Hackerfunktion hier
+                    // Beispiel: Ändern des Website-Inhalts
+                    document.body.style.backgroundColor = "red";
+                    console.log("Website gehackt!");
+                } else {
+                    // Zeige eine Fehlermeldung an
+                    console.log("Ungültiger Befehl!");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
