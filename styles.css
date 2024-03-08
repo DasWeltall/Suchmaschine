@@ -120,7 +120,7 @@ button:hover {
 
   .dropdown-content {
     display: none;
-    position: absolute;
+    right: 0px;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -133,7 +133,8 @@ button:hover {
     text-decoration: none;
     display: block;
     background: none;
-    border: none;
+    border: 2px;
+    border-color: grey;
     cursor: pointer;
     width: 100%;
     text-align: left;
