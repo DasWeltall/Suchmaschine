@@ -36,9 +36,7 @@
       	{ title: "CNN", description: "Nachrichtensender", url: "https://www.cnn.com/" }
 ];
 
-// Füge die zusätzlichen Links den vorhandenen Links hinzu
-var allLinks = predefinedLinks.concat(additionalLinks);
-    ];
+
 
     function search() {
         var query = document.getElementById('searchQuery').value.toLowerCase();
