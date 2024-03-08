@@ -1,1 +1,156 @@
 
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      background-color: rgb(74, 74, 119);
+    } 
+    
+    h1 {
+      font-size: 100px;
+      font-weight: bold;
+      color: #0073b7;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+
+
+	.container {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+/* Styles für die Suchleiste */
+.search-container {
+  position: relative;
+}    
+	
+    h1::after {
+      content: " ";
+      font-size: 150px;
+      font-weight: normal;
+      color: #ff9800;
+      margin-left: 10px;
+    }
+
+
+  #iconButton {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #iconButton:hover {
+      background-color: #0056b3;
+    }
+
+
+
+	  #iconAnmelden {
+      position: fixed;
+      top: 20px;
+      left: 0px;
+      background-color: #000000;
+      color: #fff;
+      border: none;
+      border-radius: 5%;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    input {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: orange;
+  border: 2px solid #B404AE;
+  border-radius: 10px;
+  padding: 15px 50px;
+}
+
+
+    button {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #B404AE;
+  border-radius: 23px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  
+  transition: background-color 0.2s ease-in-out;
+}
+.orange-icon {
+      width: 20px; /* Beispiel: Breite des Icons */
+      height: 20px; /* Beispiel: Höhe des Icons */
+      /* Weitere Stilattribute nach Bedarf */
+    }
+button:hover {
+  background-color: #ff9800;
+}
+
+  /* CSS-Styling für das Dropdown-Menü */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropbtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .dropbtn i {
+    margin-right: 5px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+  }
+
+  .dropdown-content button:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
