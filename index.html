@@ -9,7 +9,7 @@
 
 </head>
 <body>
-   <button class="anmeldeButton" onclick="location.href='anmelde.html'">Anmelden</button>
+   <button id="anmeldeButton" onclick="location.href='anmelde.html'">Anmelden</button>
    <div class="dropdown">
 	   <button class="dropbtn"><img src="mehr.png" alt="Icon"></button>
            <div class="dropdown-content">
@@ -170,11 +170,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-	// Event-Listener hinzufügen, um auf Klicks auf den Button zu reagieren
-    document.getElementById("iconAnmelden").addEventListener("click", function() {
-      window.location.href = "anmelde.html";
-    });
-
+	
      
    var color123 = ["orange", "purple", "#4A4AC7", "green"];
    var currentIndex = 0;
