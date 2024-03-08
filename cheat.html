@@ -46,17 +46,15 @@
                 // Den Befehl ausführen
                 if (befehl === "hilfe") {
                     // Zeige eine Liste der verfügbaren Befehle an
-                    console.log("Verfügbare Befehle:");
-                    console.log(" - hilfe: Zeigt diese Hilfe an");
-                    console.log(" - hack: Implementiert die Hackerfunktion");
+                    alert("Verfügbare Befehle:");
                 } else if (befehl === "hack") {
                     // Implementieren Sie die Hackerfunktion hier
                     // Beispiel: Ändern des Website-Inhalts
                     document.body.style.backgroundColor = "red";
-                    console.log("Website gehackt!");
+                    alert("Website gehackt!");
                 } else {
                     // Zeige eine Fehlermeldung an
-                    console.log("Ungültiger Befehl!");
+                    alert("Ungültiger Befehl!");
                 }
             }
         });
