@@ -16,15 +16,7 @@
 
 
 
-	.container {
-  max-width: 600px;
-  margin: 50px auto;
-}
-
-/* Styles für die Suchleiste */
-.search-container {
-  position: relative;
-}    
+	   
 	
     h1::after {
       content: " ";
