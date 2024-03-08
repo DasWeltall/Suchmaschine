@@ -173,13 +173,13 @@ button:hover {
    <div class="dropdown">
 	   <button class="dropbtn"><img src="mehr.png" alt="Icon"></button>
            <div class="dropdown-content">
-             <button href="game.html"><img src="spielcontroller.png" alt="Icon"></button>
-	     <button><i class="fa">&#xf013;</i> App 2</button>
-             <button><i class="fa">&#xf201;</i> App 3</button>
+             <button id="game"><img src="spielcontroller.png" alt="Icon"></button>
+	     <button id="game"><img src="logoo.png" alt="Icon"></button>
+             <button id="game"><img src="game.png" alt="Icon"></button>
     <!-- Weitere Apps hinzufügen -->
            </div>
    </div>
-  <h1 size="100">
+  <h1>
 	  <img class="orange-icon" scr="logoo.png" alt="orange">
 	rangeSearch
   </h1>
@@ -392,7 +392,10 @@ addToSearchHistory(suchbegriff);
 
 
 
-
+// Event-Listener hinzufügen, um auf Klicks auf den Button zu reagieren
+    document.getElementById("game").addEventListener("click", function() {
+      window.location.href = "game.html";
+    });
 </script>
 
 
