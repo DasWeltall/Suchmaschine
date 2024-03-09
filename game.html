@@ -136,13 +136,12 @@
 
         if (obstacle.x + obstacleWidth < 0) {
           score++;
+          scoree++;
           obstacles.shift();
         }
 
 
-        if (score > scoree) {
-          var scoree = score;
-        }
+     
 
         if (bird.x + bird.radius > obstacle.x && bird.x - bird.radius < obstacle.x + obstacleWidth) {
           if (bird.y - bird.radius < obstacle.height || bird.y + bird.radius > obstacle.height + gap) {
