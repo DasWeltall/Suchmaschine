@@ -107,7 +107,7 @@
   <h2>OrangeSearch</h2>
  <div class="search-container">
     <input type="search" id="search" placeholder="Suche..." class="search-bar">
-    <button type="submit" class="search-button">
+    <button type="submit" onklick="search()"class="search-button">
       <img scr="find-2.png" alt="i">
     </button>
   </div>
@@ -146,7 +146,7 @@
 
 
     function search() {
-        var query = document.getElementById('searchQuery').value.toLowerCase();
+        var query = document.getElementById('search').value.toLowerCase();
         var resultsContainer = document.getElementById('results');
         resultsContainer.innerHTML = ''; // Lösche vorherige Suchergebnisse
         var matches = [];
@@ -209,7 +209,7 @@
 // Funktion zum Hinzufügen einer Suchanfrage zur Suchhistorie
 function addToSearchHistory(suchbegriff) {
   // Die aktuelle Suchhistorie aus den Cookies abrufen
-  var suchbegriff = document.getElementById("searchQuery").value;
+  var suchbegriff = document.getElementById("search").value;
   var suchhistorie = getSearchHistory();
   
   // Die neue Suchanfrage zur Suchhistorie hinzufügen
