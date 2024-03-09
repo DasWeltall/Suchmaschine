@@ -97,14 +97,11 @@
     var obstacleWidth = 50;
     var obstacleSpeed = 2;
     var score = 0;
+    var scoree = max(score);
     var gameover = false;
 
 
-    function drawHighscore() {
-      ctx.font = "20px Arial";
-      ctx.fillStyle = "#333";
-      ctx.fillText("Score: " + score, 10, 30);
-    }
+    
 
     function drawBird() {
       ctx.beginPath();
@@ -164,7 +161,7 @@
     function gameOver() {
       gameover = true;
       document.getElementById("retryButton").style.display = "block";
-      alert("Game Over! Dein Score: " + score + ". Dein Highscore: " + highscore);
+      alert("Game Over! Dein Score: " + score + ". Dein Highscore: " + scoree);
     }
 
     function reset() {
