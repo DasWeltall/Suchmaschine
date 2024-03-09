@@ -97,7 +97,7 @@
     var obstacleWidth = 50;
     var obstacleSpeed = 2;
     var score = 0;
-    var scoree = max(score);
+    var scoree = 0;
     var gameover = false;
 
 
@@ -137,6 +137,11 @@
         if (obstacle.x + obstacleWidth < 0) {
           score++;
           obstacles.shift();
+        }
+
+
+        if (score > scoree) {
+          var scoree = score;
         }
 
         if (bird.x + bird.radius > obstacle.x && bird.x - bird.radius < obstacle.x + obstacleWidth) {
