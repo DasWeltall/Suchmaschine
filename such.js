@@ -1,4 +1,4 @@
-<script>
+
     // Vorprogrammierte Links mit Titel, Beschreibung und URL
     var predefinedLinks = [
         { title: "Smartghost", description: "Smartghost Münster", url: "https://www.smartghost-muenster.de" },
