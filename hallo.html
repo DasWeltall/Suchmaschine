@@ -9,6 +9,7 @@
       background-color: purple;
     }
     .search-container {
+      z-index: 1;
       position: relative;
       width: 300px;
       margin: 0 auto;
@@ -63,13 +64,14 @@
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="search-container">
+ <div class="search-container">
     <input type="search" id="search" placeholder="Suche..." class="search-bar">
     <button type="submit" class="search-button">
       <img scr="find-2.png" alt="i">
     </button>
   </div>
+<div class="container">
+  <ul id="results"></ul>
 </div>
 </body>
 </html>
