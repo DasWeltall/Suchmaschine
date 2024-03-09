@@ -2,82 +2,59 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Webcrawler-Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suchfeld</title>
+  <style>
+    .search-container {
+      position: relative;
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    .search-bar {
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    }
+
+    .search-bar:focus {
+      outline: none;
+      border-color: #999;
+    }
+
+    .search-button {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      height: 40px;
+      width: 40px;
+      border: none;
+      background-color: #ccc;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      cursor: pointer;
+    }
+
+    .search-button:hover {
+      background-color: #bbb;
+    }
+
+    .search-button i {
+      color: #fff;
+      font-size: 16px;
+      line-height: 40px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Webcrawler-Demo</h1>
-
-  <form action="/" method="GET">
-    <label for="search-input">Suchbegriff eingeben:</label>
-    <input type="text" id="search-input" name="q" placeholder="Suchbegriff eingeben">
-    <button type="submit">Suchen</button>
-  </form>
-
-  <ul id="results"></ul>
-
-  <script src="https://unpkg.com/puppeteer"></script>
-
-  <script>
-    const resultsElement = document.getElementById("results");
-
-    // Funktion zum Anzeigen der Crawler-Ergebnisse
-    function showResults(title, links) {
-      // Leeren der Ergebnisliste
-      resultsElement.innerHTML = "";
-
-      // Titel hinzufügen
-      const titleElement = document.createElement("h2");
-      titleElement.textContent = title;
-      resultsElement.appendChild(titleElement);
-
-      // Links als Liste hinzufügen
-      for (const link of links) {
-        const linkElement = document.createElement("li");
-        const anchorElement = document.createElement("a");
-        anchorElement.href = `https://www.example.com/${link}`;
-        anchorElement.textContent = link;
-        linkElement.appendChild(anchorElement);
-        resultsElement.appendChild(linkElement);
-      }
-    }
-
-    // Suchfunktion
-    async function search() {
-      // Suchbegriff aus der Eingabe abrufen
-      const query = document.getElementById("search-input").value;
-
-      // URL der zu crawlenden Webseite mit Suchparameter erstellen
-      const url = `https://www.example.com/?q=${query}`;
-
-      // Puppeteer initialisieren
-      const puppeteer = await puppeteer.launch();
-
-      // Neue Seite in Puppeteer öffnen
-      const page = await puppeteer.newPage();
-
-      // Zur Webseite navigieren
-      try {
-        await page.goto(url);
-      } catch (error) {
-        console.error(error);
-        return;
-      }
-
-      // Titel der Webseite extrahieren
-      const title = await page.title();
-
-      // Alle Links auf der Webseite finden
-      const links = await page.$$eval("a", (elements) => elements.map((element) => element.href));
-
-      // Ergebnisse anzeigen
-      showResults(title, links);
-
-      // Puppeteer beenden
-      await browser.close();
-    }
-
-    // Event-Listener für den Suchbutton
-    document.getElementById("search-button").addEventListener("click", search);
-  </script>
+  <div class="search-container">
+    <input type="search" id="search" placeholder="Suche..." class="search-bar">
+    <button type="submit" class="search-button">
+      <img scr="find-2.png" alt="i">
+    </button>
+  </div>
 </body>
 </html>
