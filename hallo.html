@@ -228,17 +228,20 @@
 
 ];
 
-    function search() {
-      event.preventDefault();
-      var query = document.getElementById('search').value.toLowerCase();
-      var resultsContainer = document.getElementById('results');
-      resultsContainer.innerHTML = '';
-      var matches = [];
-      predefinedLinks.forEach(function(link) {
-        if (link.title.toLowerCase().includes(query) || link.description.toLowerCase().includes(query)) {
-          matches.push(link);
-        }
-      });
+	function search() {
+  		event.preventDefault();
+ 		var query = document.getElementById('search').value.toLowerCase();
+  		var selectedCategory = document.getElementById('categoryFilter').value; // Get selected category from filter dropdown
+  		var resultsContainer = document.getElementById('results');
+  		resultsContainer.innerHTML = '';
+  		var matches = [];
+  		predefinedLinks.forEach(function(link) {
+   		 if (selectedCategory === "all" || link.category === selectedCategory) { // Filter by category
+      			if (link.title.toLowerCase().includes(query) || link.description.toLowerCase().includes(query)) {
+        			matches.push(link);
+     	}
+    }
+  });
       matches.forEach(function(match) {
         var resultElement = document.createElement('li');
         resultElement.innerHTML = '<a href="' + match.url + '">' + match.title + '</a><p>' + match.description + '</p>';
