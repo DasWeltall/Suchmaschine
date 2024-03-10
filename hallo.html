@@ -121,6 +121,8 @@
 }
 
     .search-container {
+      display: grid;
+      grid-template-columns: 1fr auto;
       position: relative;
       width: 350px;
       margin: 0 auto;
@@ -151,6 +153,11 @@
       outline: none;
     }
 
+	  .icon {
+ 		 place-self: end center;
+	}
+
+	  
     .search-button {
       right: 10px;
       top: 10px;
