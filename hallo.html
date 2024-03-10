@@ -203,7 +203,9 @@
   	<select id="categoryFilter">
     		<option value="all">Alle</option>
     		<option value="bilder">Bilder</option>
-    		<option value="videos">Videos</option>
+		<option value="videos">Videos</option>
+		<option value="shopping">Shopping</option>
+		<option value="musik">Musik</option>
   	</select>
 </div>
   <ul id="results"></ul>
@@ -219,21 +221,21 @@
 </body>
 <script>
     var predefinedLinks = [
-        { title: "Smartghost", description: "Smartghost Münster", url: "https://www.smartghost-muenster.de" },
-        { title: "WhatsApp", description: "WhatsApp Web", url: "https://web.whatsapp.com/" },
-        { title: "Raspberry Pi", description: "Raspberry Pi Foundation", url: "https://www.raspberrypi.com/" },
-        { title: "Google", description: "Die bekannteste Suchmaschine", url: "https://www.google.com" },
-        { title: "Apple", description: "Apple Inc.", url: "https://www.apple.com" },
-        { title: "NABU", description: "Naturschutzbund Deutschland", url: "https://www.nabu.de/" },
-        { title: "Tagesschau", description: "Aktuelle Nachrichten", url: "https://www.tagesschau.de" },
-        { title: "Samsung", description: "Samsung Electronics", url: "https://www.samsung.com/" },
-        { title: "YouTube", description: "Video-Plattform", url: "https://www.youtube.com/" },
-        { title: "SoundCloud", description: "Audio-Plattform", url: "https://soundcloud.com/" },
-        { title: "Spotify", description: "Musik-Streaming-Dienst", url: "https://open.spotify.com/" },
-        { title: "TV Today", description: "Fernsehprogramm", url: "https://www.tvtoday.de/" },
+        { title: "Smartghost", description: "Smartghost Münster", url: "https://www.smartghost-muenster.de", category: "shopping" },
+        { title: "WhatsApp", description: "WhatsApp Web", url: "https://web.whatsapp.com/", category: "bilder" },
+        { title: "Raspberry Pi", description: "Raspberry Pi Foundation", url: "https://www.raspberrypi.com/", category: "bilder" },
+        { title: "Google", description: "Die bekannteste Suchmaschine", url: "https://www.google.com", category: "bilder" },
+        { title: "Apple", description: "Apple Inc.", url: "https://www.apple.com", category: "bilder" },
+        { title: "NABU", description: "Naturschutzbund Deutschland", url: "https://www.nabu.de/", category: "bilder" },
+        { title: "Tagesschau", description: "Aktuelle Nachrichten", url: "https://www.tagesschau.de", category: "videos" },
+        { title: "Samsung", description: "Samsung Electronics", url: "https://www.samsung.com/", category: "shopping" },
+        { title: "YouTube", description: "Video-Plattform", url: "https://www.youtube.com/", category: "videos" },
+        { title: "SoundCloud", description: "Audio-Plattform", url: "https://soundcloud.com/", category: "musik" },
+        { title: "Spotify", description: "Musik-Streaming-Dienst", url: "https://open.spotify.com/", category: "musik" },
+        { title: "TV Today", description: "Fernsehprogramm", url: "https://www.tvtoday.de/", category: "bilder" },
         { title: "Google Maps", description: "Karten und Routenplanung", url: "https://www.google.com/maps/" },
-        { title: "Amazon", description: "Online-Versandhändler", url: "https://www.amazon.com/" },
-        { title: "GitHub", description: "Plattform für Entwickler", url: "https://github.com/", category: "bilder" }
+        { title: "Amazon", description: "Online-Versandhändler", url: "https://www.amazon.com/", category: "shopping" },
+        { title: "GitHub", description: "Plattform für Entwickler", url: "https://github.com/" }
 
 ];
 
