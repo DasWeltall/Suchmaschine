@@ -207,7 +207,6 @@
 </div>
 </body>
 <script>
- // Vorprogrammierte Links mit Titel, Beschreibung und URL
     var predefinedLinks = [
         { title: "Smartghost", description: "Smartghost Münster", url: "https://www.smartghost-muenster.de" },
         { title: "WhatsApp", description: "WhatsApp Web", url: "https://web.whatsapp.com/" },
@@ -227,46 +226,26 @@
 
 ];
 
-
-
     function search() {
-        var query = document.getElementById('search').value.toLowerCase();
-        var resultsContainer = document.getElementById('results');
-        resultsContainer.innerHTML = ''; // Lösche vorherige Suchergebnisse
-        var matches = [];
-	addToSearchHistory();
-
-	
-        if (/^https?:\/\//.test(query)) {
-          // Den Link in einem neuen Tab öffnen
-	  window.open(query, "_blank");
-    	  return;
- 	}
-
-        // Durchsuche die vorprogrammierten Links nach Übereinstimmungen mit der Suchanfrage
-        predefinedLinks.forEach(function(link) {
-            if (link.title.toLowerCase().includes(query) || link.description.toLowerCase().includes(query)) {
-                matches.push(link);
-            }
-        });
-
-
-	   
-        // Zeige die gefundenen Suchergebnisse an
-        matches.forEach(function(match) {
-            var resultElement = document.createElement('div');
-            resultElement.innerHTML = '<a href="' + match.url + '">' + match.title + '</a><p>' + match.description + '</p>';
-            resultsContainer.appendChild(resultElement);
-        });
-
-        // Wenn keine Übereinstimmungen gefunden wurden, zeige eine entsprechende Nachricht an
-        if (matches.length === 0) {
-            resultsContainer.textContent = "Keine Ergebnisse gefunden.";
+      event.preventDefault();
+      var query = document.getElementById('search').value.toLowerCase();
+      var resultsContainer = document.getElementById('results');
+      resultsContainer.innerHTML = '';
+      var matches = [];
+      predefinedLinks.forEach(function(link) {
+        if (link.title.toLowerCase().includes(query) || link.description.toLowerCase().includes(query)) {
+          matches.push(link);
         }
+      });
+      matches.forEach(function(match) {
+        var resultElement = document.createElement('li');
+        resultElement.innerHTML = '<a href="' + match.url + '">' + match.title + '</a><p>' + match.description + '</p>';
+        resultsContainer.appendChild(resultElement);
+      });
+      if (matches.length === 0) {
+        resultsContainer.textContent = "Keine Ergebnisse gefunden.";
+      }
     }
-
-
-
-
-</script>
+    document.getElementById('search').addEventListener('keyup', search);
+  </script>
 </html>
