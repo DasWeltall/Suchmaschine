@@ -43,6 +43,39 @@
   background-color: #bbb;
   font-weight: bold;
 }
+    .button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: #333;
+}
+
+.text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .button {
+    width: 150px;
+  }
+}
+
+@media (max-width: 767px) {
+  .button {
+    width: 100%;
+  }
+}
 
     .background {
   width: 100%;
@@ -150,6 +183,9 @@
     <li><button data-filter="videos">Videos</button></li>
   </ul>
   <ul id="results"></ul>
+  <button class="button">
+      <span class="text">Mehr</span>
+  </button>
 </div>
 <div class="background">
   <div class="line"></div>
