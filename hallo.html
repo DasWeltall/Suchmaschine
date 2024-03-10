@@ -195,8 +195,14 @@
     <li><a href="">Bilder</a></li>
     <li><a href="">Videos</a></li>
   </ul>
-
-  <h6>Filter:</h6><select id="categoryFilter"><option value="all">Alle</option><option value="bilder">Bilder</option><option value="videos">Videos</option></select>
+  <div style="display: grid; grid-template-columns: 1fr auto">
+  	<h6>Filter:</h6>
+  	<select id="categoryFilter">
+    		<option value="all">Alle</option>
+    		<option value="bilder">Bilder</option>
+    		<option value="videos">Videos</option>
+  	</select>
+</div>
   <ul id="results"></ul>
   <button onclick="more" class="butto">
       <span class="text">More</span>
