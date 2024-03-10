@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Suchfeld</title>
   <style>
+	  a {
+ 	     color: gray; /* Ändert die Farbe aller Links */
+	}
 
 
     h2 {
@@ -43,7 +46,7 @@
   background-color: ##7ea0f2;
   font-weight: bold;
 }
-    .button {
+    .butto {
   background-color: #5681fa;
   color: #fff;
   border: none;
@@ -124,7 +127,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -30%);
+        transform: translate(-50%, -40%);
         background-color: #fff;
         width: 400px;
         height: 400px;
@@ -169,17 +172,19 @@
   </style>
 </head>
 <body>
+<br>
  <div class="search-container">
     <input type="search" id="search" placeholder="Suche..." class="search-bar">
     <button type="submit" onklick="search()"class="search-button">
       <img scr="find-2.png" alt="i">
     </button>
  </div>
+
 <div class="container">
   <ul class="filter-options">
-   <li><button data-filter="all">Web</button></li>
-    <li><button data-filter="images">Bilder</button></li>
-    <li><button data-filter="videos">Videos</button></li>
+   <li><a href="">Web</a></li>
+    <li><a href="">Bilder</a></li>
+    <li><a href="">Videos</a></li>
   </ul>
   <ul id="results"></ul>
   <button class="butto">
