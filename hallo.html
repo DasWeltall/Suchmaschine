@@ -178,12 +178,14 @@
 </head>
 <body>
 <br>
- <div class="search-container">
+<div class="search-container">
+  <form id="searchForm">
     <input type="search" id="search" placeholder="Suche..." class="search-bar">
     <button type="submit" onklick="search()"class="search-button">
       Search
     </button>
- </div>
+  </form>
+</div>
 
 <div class="container">
   <ul class="filter-options">
@@ -220,9 +222,7 @@
         { title: "TV Today", description: "Fernsehprogramm", url: "https://www.tvtoday.de/" },
         { title: "Google Maps", description: "Karten und Routenplanung", url: "https://www.google.com/maps/" },
         { title: "Amazon", description: "Online-Versandhändler", url: "https://www.amazon.com/" },
-        { title: "GitHub", description: "Plattform für Entwickler", url: "https://github.com/" },
-	      { title: "OrangeSearch", description: "Kleine Suchmaschine", url: "https://dasweltall.github.io/Suchmaschine/" }
-
+        { title: "GitHub", description: "Plattform für Entwickler", url: "https://github.com/" }
 
 ];
 
@@ -250,7 +250,7 @@
         });
 
 
-	    if (/^https?:\/\//.test(searchQuery)) {
+	    if (/^https?:\/\//.test(search)) {
 		window.open(input, "_blank");
 	    }
         // Zeige die gefundenen Suchergebnisse an
