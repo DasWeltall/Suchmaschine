@@ -128,7 +128,6 @@
       margin: 0 auto;
     }
      .container {
-	background: linear-gradient(to bottom, transparent, #5681fa) no-repeat;
 	max-height: 400px;
 	overflow: scroll;
         border-radius: 5%;
@@ -172,6 +171,9 @@
     .search-button:hover {
       background-color: #bbb;
     }
+	  body {
+		  background: linear-gradient(to bottom, transparent, #5681fa) no-repeat;
+	  }
 
   </style>
 </head>
@@ -193,7 +195,7 @@
     <li><a href="">Bilder</a></li>
     <li><a href="">Videos</a></li>
   </ul>
-  <hr>
+
   <h6>Suchergebnisse:</h6>
   <ul id="results"></ul>
   <button onclick="more" class="butto">
@@ -241,7 +243,6 @@
         var resultElement = document.createElement('li');
         resultElement.innerHTML = '<a href="' + match.url + '">' + match.title + '</a><p>' + match.description + '</p>';
         resultsContainer.appendChild(resultElement);
-	resultsContainer.innerHTML += '<hr>';
       });
       if (matches.length === 0) {
         resultsContainer.textContent = "Keine Ergebnisse gefunden.";
