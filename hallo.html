@@ -181,9 +181,33 @@
 		z-index: 3;
 	  }
 
+
+	      .search-text {
+        font-size: 48px;
+        font-weight: bold;
+        color: #5681fa;; /* Blaue Farbe */
+        text-shadow: 2px 2px 4px rgba(126,160,242,255);
+        animation: reversePerspective 10s linear infinite; /* Ändere die Dauer der Animation hier */
+        transform-style: preserve-3d;
+        transform-origin: center; /* Drehpunkt in der Mitte des Textes */
+    }
+    
+    @keyframes reversePerspective {
+        0% {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        50% {
+            transform: perspective(1000px) rotateY(180deg);
+        }
+        100% {
+            transform: perspective(1000px) rotateY(360deg);
+        }
+    }
+
   </style>
 </head>
 <body>
+<h2 class="search-text">DeepBlueSearch</h2>
 <br>
 <div class="search-container">
   <form id="searchForm">
